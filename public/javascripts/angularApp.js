@@ -1,6 +1,6 @@
-angular.module('flapperNews', ['ui.router'])
+var flapperNews = angular.module('flapperNews', ['ui.router'])
 
-.config([ '$stateProvider', '$urlRouterProvider',
+flapperNews.config([ '$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -18,7 +18,7 @@ angular.module('flapperNews', ['ui.router'])
   }
 ])
 
-.factory('posts', [
+flapperNews.factory('posts', [
   function() {
     var o = {
       posts: []
@@ -27,7 +27,7 @@ angular.module('flapperNews', ['ui.router'])
   }
 ])
 
-.controller('MainController', [ '$scope', 'posts',
+flapperNews.controller('MainController', [ '$scope', 'posts',
   function($scope, posts){
     $scope.posts = posts.posts;
 
@@ -52,7 +52,7 @@ angular.module('flapperNews', ['ui.router'])
   }
 ])
 
-.controller('PostsController', [ '$scope', '$stateParams', 'posts',
+flapperNews.controller('PostsController', [ '$scope', '$stateParams', 'posts',
   function($scope, $stateParams, posts) {
     $scope.post = posts.posts[$stateParams.id];
 
